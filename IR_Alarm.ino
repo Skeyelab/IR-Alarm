@@ -56,7 +56,7 @@ WiFiUDP Udp;
 
 void setup()
 {
-  pinMode(IRledPin, OUTPUT); 
+  pinMode(IRledPin, OUTPUT);
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -127,11 +127,10 @@ void loop()
     clockDisplay();
     sharpMute();
 
-//    Serial.println(int(second()));
-//    if (int(second()) == 0) {
-//      Serial.println("should blink");
-//      ZeroKey();
-//    }
+    if (timeDisplay() == "6:00:00") {
+      Serial.println("Turning On");
+      OnCycle();
+    }
   }
 
 }

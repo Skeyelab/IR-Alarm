@@ -34,6 +34,13 @@ int getTimeAndDate() {
 //  Udp.endPacket();
 //}
  
+void timeDisplay(){
+  Serial.print(hour());
+  printDigits(minute());
+  printDigits(second());
+  Serial.println();
+}
+
 // Clock display of the time and date (Basic)
 void clockDisplay(){
   Serial.print(hour());

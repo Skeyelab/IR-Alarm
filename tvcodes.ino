@@ -632,3 +632,21 @@ pulseIR(300);
 delayMicroseconds(700);
 pulseIR(300);
 }
+
+void OnCycle() {
+  TogglePower2();
+  delay(5 * 1000); // wait twenty seconds (20 seconds * 1000 milliseconds) Change this value for different intervals.
+  LiveTV();
+  delay(5 * 1000);
+  SixKey();
+  delay(500);
+  ZeroKey();
+  delay(500);
+
+  FiveKey();
+
+
+  delay(15 * 1000);
+  TogglePower();
+  delay(15 * 1000);
+}

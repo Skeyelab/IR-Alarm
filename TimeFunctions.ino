@@ -34,11 +34,12 @@ int getTimeAndDate() {
 //  Udp.endPacket();
 //}
  
-void timeDisplay(){
-  Serial.print(hour());
-  printDigits(minute());
-  printDigits(second());
-  Serial.println();
+String timeDisplay(){
+  String str = String(hour());
+  
+  str = str + returnDigits(minute());
+  str = str + returnDigits(second());
+ return str;
 }
 
 // Clock display of the time and date (Basic)
@@ -61,4 +62,14 @@ void printDigits(int digits){
   if(digits < 10)
     Serial.print('0');
   Serial.print(digits);
+}
+
+String returnDigits(int digits){
+  String str = ":";
+ // Serial.print(":");
+  if(digits < 10)
+    str = str +'0';
+ // Serial.print(digits);
+str = str + digits;
+return str;
 }

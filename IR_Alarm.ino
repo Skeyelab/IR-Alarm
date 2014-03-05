@@ -27,7 +27,7 @@ char ssid[] = "Groupon Mobile";  //  your network SSID (name)
 char pass[] = "Sn0wf@ll";       // your network password
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
-int IRledPin =  2;    // LED connected to digital pin
+int IRledPin =  3;    // LED connected to digital pin
 
 
 unsigned int localPort = 2390;      // local port to listen for UDP packets
@@ -56,6 +56,7 @@ WiFiUDP Udp;
 
 void setup()
 {
+  pinMode(IRledPin, OUTPUT); 
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -124,6 +125,13 @@ void loop()
   if ( now() != prevDisplay) {
     prevDisplay = now();
     clockDisplay();
+    sharpMute();
+
+//    Serial.println(int(second()));
+//    if (int(second()) == 0) {
+//      Serial.println("should blink");
+//      ZeroKey();
+//    }
   }
 
 }
